@@ -1,0 +1,153 @@
+Script started on 2021-12-01 21:25:08-05:00 [TERM="xterm-256color" TTY="/dev/pts/21" COLUMNS="203" LINES="34"]
+]0;anaqvi23@compute:~/courses/cs2211/assignments/asn5[?2004h[anaqvi23@compute asn5]$ date
+[?2004lWed 01 Dec 2021 09:25:20 PM EST
+]0;anaqvi23@compute:~/courses/cs2211/assignments/asn5[?2004h[anaqvi23@compute asn5]$ who am[K[K[Kami
+[?2004lanaqvi23
+]0;anaqvi23@compute:~/courses/cs2211/assignments/asn5[?2004h[anaqvi23@compute asn5]$ ls -l
+[?2004ltotal 209
+-rw-r--r-- 1 anaqvi23 anaqvi23     0 Dec  1 21:25 anaqvi23_asn5.output
+-rwxr-xr-x 1 anaqvi23 anaqvi23 25144 Dec  1 21:24 [0m[01;32masn5[0m
+-rw-r--r-- 1 anaqvi23 anaqvi23  1904 Dec  1 21:22 Asn5_SubmissionForm.txt
+-rw-r--r-- 1 anaqvi23 anaqvi23   360 Dec  1 19:51 createList.c
+-rw-r--r-- 1 anaqvi23 anaqvi23  2013 Dec  1 19:40 definitions.h
+-rw-r--r-- 1 anaqvi23 anaqvi23   314 Dec  1 19:47 freedataPtr.c
+-rw-r--r-- 1 anaqvi23 anaqvi23   508 Dec  1 21:17 freeList.c
+-rw-r--r-- 1 anaqvi23 anaqvi23   416 Dec  1 19:41 freeNode.c
+-rw-r--r-- 1 anaqvi23 anaqvi23   498 Dec  1 19:41 getFrequency.c
+-rw-r--r-- 1 anaqvi23 anaqvi23   298 Dec  1 19:41 headers.h
+-rw-r--r-- 1 anaqvi23 anaqvi23  1585 Dec  1 19:41 incrementCycles.c
+-rw-r--r-- 1 anaqvi23 anaqvi23  1064 Dec  1 19:42 initDocs.c
+-rw-r--r-- 1 anaqvi23 anaqvi23  4710 Dec  1 19:43 insertList.c
+-rw-r--r-- 1 anaqvi23 anaqvi23  1159 Dec  1 21:23 main.c
+-rw-r--r-- 1 anaqvi23 anaqvi23  4399 Dec  1 19:44 printDoc.c
+-rw-r--r-- 1 anaqvi23 anaqvi23   866 Dec  1 19:44 printList.c
+-rw-r--r-- 1 anaqvi23 anaqvi23  2493 Dec  1 19:44 readdNode.c
+-rw-r--r-- 1 anaqvi23 anaqvi23   569 Dec  1 19:44 removeHead.c
+-rw-r--r-- 1 anaqvi23 anaqvi23  1193 Dec  1 19:44 temporarilyDelete.c
+]0;anaqvi23@compute:~/courses/cs2211/assignments/asn5[?2004h[anaqvi23@compute asn5]$ vi main.c
+[?2004l[?1049h[22;0;0t[>4;2m[?1h=[?2004h[?1004h[1;34r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[34;1H"main.c" [noeol] 34L, 1159B[2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[2;1H[34m/* CS2211a [m[31m2021[m[34m */[m[2;19H[K[3;1H[34m/* Assignment [m[31m5[m[34m */[m[3;19H[K[4;1H[34m/* Ameena Naqvi */
+/* [m[31m251173552[m[34m */
+/* anaqvi23 */
+/* December [m[31m1[m[34m, [m[31m2021[m[34m */[m
+[35m#include [m[31m"headers.h"[m
+
+[34m// This is the main program for the assignment [m
+[32mint[m main ([32mvoid[m)
+{
+    [34m// Creates a newList to store the printer queue[m
+    LIST* newList= createList();
+    [34m// Calls srand(time(NULL)) once to ensure randomizer acts correctly[m
+    srand(time([31mNULL[m));
+    [34m// Enters a for loop based on a given number of max iterations[m
+    [38;5;130mfor[m ([32mint[m i=[31m1[m; i<ITERATIONS; i++){[19;9H[34m// Each cycle there is a [m[31m10[m[34m% chance that a printing job request will be added to the queue[m[20;9H[38;5;130mif[m(getFrequency()== [31m1[m){[21;13H[34m// if the [m[31m10[m[34m% is hit insert the job request into the queue in order[m[22;13HDOC *firstDoc = (DOC*) malloc([38;5;130msizeof[m(DOC));[23;13HinitDoc(firstDoc, i);[24;13HinsertList(newList, firstDoc);[25;9H}[26;9H[34m// Documents are printed simulatenously based on the printers capacity[m[27;9HprintDoc(newList);[29;5H}
+    printf([31m"End of Program - * NAQVI *[m[35m\n[m[31mNumber of printer jobs left in queue: [m[35m%d\n[m[31m"[m, newList->count);
+    [34m// All memory associated with the list is then freed[m
+    freeList(newList);
+  [38;5;130mreturn[m [31m0[m;[34;186H3,1[11CTop[3;1H[?25h[?25l[34;176H:[3;1H[34;1H[K[34;1H:[?25hwq![?25l[?2004l[>4;m"main.c" 34L, 1160B written[23;2t[23;1t
+[?1004l[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t]0;anaqvi23@compute:~/courses/cs2211/assignments/asn5[?2004h[anaqvi23@compute asn5]$ cat main.c
+[?2004l
+/* CS2211a 2021 */
+/* Assignment 5 */
+/* Ameena Naqvi */
+/* 251173552 */ 
+/* anaqvi23 */ 
+/* December 1, 2021 */ 
+#include "headers.h"
+
+// This is the main program for the assignment 
+int main (void)
+{
+    // Creates a newList to store the printer queue
+    LIST* newList= createList();
+    // Calls srand(time(NULL)) once to ensure randomizer acts correctly
+    srand(time(NULL));
+    // Enters a for loop based on a given number of max iterations
+    for (int i=1; i<ITERATIONS; i++){
+        // Each cycle there is a 10% chance that a printing job request will be added to the queue
+        if(getFrequency()== 1){
+            // if the 10% is hit insert the job request into the queue in order
+            DOC *firstDoc = (DOC*) malloc(sizeof(DOC));
+            initDoc(firstDoc, i);
+            insertList(newList, firstDoc);
+        }
+        // Documents are printed simulatenously based on the printers capacity
+        printDoc(newList);
+        
+    }
+    printf("End of Program - * NAQVI *\nNumber of printer jobs left in queue: %d\n", newList->count);
+    // All memory associated with the list is then freed
+    freeList(newList);
+  return 0;
+} 
+]0;anaqvi23@compute:~/courses/cs2211/assignments/asn5[?2004h[anaqvi23@compute asn5]$ ./asn5
+[?2004lPrint Job Completed - Document Number:    2   -   Cycle Count:     0
+Print Job Completed - Document Number:   20   -   Cycle Count:     0
+Print Job Completed - Document Number:   31   -   Cycle Count:     2
+Print Job Completed - Document Number:   30   -   Cycle Count:    10
+Print Job Completed - Document Number:   43   -   Cycle Count:    25
+Print Job Completed - Document Number:   42   -   Cycle Count:    40
+Print Job Completed - Document Number:   65   -   Cycle Count:    19
+Print Job Completed - Document Number:   98   -   Cycle Count:     7
+Print Job Completed - Document Number:  110   -   Cycle Count:     7
+Print Job Completed - Document Number:  103   -   Cycle Count:    21
+Print Job Completed - Document Number:  136   -   Cycle Count:     8
+Print Job Completed - Document Number:  139   -   Cycle Count:    11
+Print Job Completed - Document Number:  161   -   Cycle Count:     6
+Print Job Completed - Document Number:  170   -   Cycle Count:     0
+Print Job Completed - Document Number:  146   -   Cycle Count:    23
+Print Job Completed - Document Number:  189   -   Cycle Count:     0
+Print Job Completed - Document Number:  187   -   Cycle Count:     2
+Print Job Completed - Document Number:  112   -   Cycle Count:    74
+Print Job Completed - Document Number:  205   -   Cycle Count:    12
+Print Job Completed - Document Number:  218   -   Cycle Count:    14
+Print Job Completed - Document Number:  184   -   Cycle Count:    49
+Print Job Completed - Document Number:  243   -   Cycle Count:    17
+Print Job Completed - Document Number:  279   -   Cycle Count:     1
+Print Job Completed - Document Number:  292   -   Cycle Count:     8
+Print Job Completed - Document Number:  284   -   Cycle Count:    26
+Print Job Completed - Document Number:  109   -   Cycle Count:   201
+Print Job Completed - Document Number:  127   -   Cycle Count:   210
+Print Job Completed - Document Number:  137   -   Cycle Count:   205
+Print Job Completed - Document Number:  349   -   Cycle Count:    36
+Print Job Completed - Document Number:  394   -   Cycle Count:     0
+Print Job Completed - Document Number:  308   -   Cycle Count:    84
+Print Job Completed - Document Number:  314   -   Cycle Count:    95
+Print Job Completed - Document Number:  424   -   Cycle Count:     5
+Print Job Completed - Document Number:  419   -   Cycle Count:    10
+Print Job Completed - Document Number:  402   -   Cycle Count:    31
+Print Job Completed - Document Number:  225   -   Cycle Count:   213
+Print Job Completed - Document Number:  230   -   Cycle Count:   235
+Print Job Completed - Document Number:  236   -   Cycle Count:   247
+Print Job Completed - Document Number:  239   -   Cycle Count:   265
+Print Job Completed - Document Number:  254   -   Cycle Count:   276
+Print Job Completed - Document Number:  262   -   Cycle Count:   295
+Print Job Completed - Document Number:  261   -   Cycle Count:   320
+Print Job Completed - Document Number:  281   -   Cycle Count:   333
+Print Job Completed - Document Number:  285   -   Cycle Count:   344
+Print Job Completed - Document Number:  310   -   Cycle Count:   332
+Print Job Completed - Document Number:  357   -   Cycle Count:   300
+Print Job Completed - Document Number:  363   -   Cycle Count:   317
+Print Job Completed - Document Number:  378   -   Cycle Count:   331
+Print Job Completed - Document Number:  393   -   Cycle Count:   342
+Print Job Completed - Document Number:  404   -   Cycle Count:   364
+Print Job Completed - Document Number:  425   -   Cycle Count:   362
+Print Job Completed - Document Number:  445   -   Cycle Count:   361
+Print Job Completed - Document Number:  456   -   Cycle Count:   361
+Print Job Completed - Document Number:  470   -   Cycle Count:   367
+Print Job Completed - Document Number:  472   -   Cycle Count:   382
+Print Job Completed - Document Number:  478   -   Cycle Count:   382
+Print Job Completed - Document Number:  482   -   Cycle Count:   386
+Print Job Completed - Document Number:  479   -   Cycle Count:   403
+Print Job Completed - Document Number:  520   -   Cycle Count:   391
+Print Job Completed - Document Number:  526   -   Cycle Count:   398
+Print Job Completed - Document Number:  538   -   Cycle Count:   412
+Print Job Completed - Document Number:  531   -   Cycle Count:   406
+Print Job Completed - Document Number:  541   -   Cycle Count:   417
+Print Job Completed - Document Number:  556   -   Cycle Count:   416
+End of Program - * NAQVI *
+Number of printer jobs left in queue: 44
+Segmentation fault (core dumped)
+]0;anaqvi23@compute:~/courses/cs2211/assignments/asn5[?2004h[anaqvi23@compute asn5]$ exit
+[?2004lexit
+
+Script done on 2021-12-01 21:26:14-05:00 [COMMAND_EXIT_CODE="139"]
