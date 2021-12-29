@@ -1,1 +1,2 @@
-# Printer-Queue
+# Software Tools and Systems Programming
+This project simulates the use of a printer queue to manage the processing of printer jobs. Every time a document is requested to be printed, a printer job is created and placed in the printer queue. The printer will process one job at a time by printing the page(s) of a document. Once all the pages of the current printer job have been processed, the request is released, and the printer will inspect the printer queue to retrieve and remove the next job in the queue.
